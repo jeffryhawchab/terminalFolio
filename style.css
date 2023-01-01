@@ -1,0 +1,602 @@
+ /* Google Fonts - Poppins */
+ @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Poppins", sans-serif;
+ }
+
+
+
+ body {
+   width: 100vw;
+   height: 100vh;
+   margin: 0;
+   overflow-x: hidden;
+   background-color: rgb(23, 2, 51);
+ }
+
+
+
+
+ a {
+   text-decoration: none;
+ }
+
+ li {
+   list-style: none;
+ }
+
+
+
+
+ /* LOGO */
+ .logo {
+  text-transform: uppercase;
+  text-decoration: underline 7px rgb(54, 102, 80);
+   color: #f2f3ed;
+   font-size: 72px;
+ }
+
+
+ .emoji {
+   font-size: calc(35px + 4vw);
+   min-width: 1.2em;
+   margin: 0.3em 0.4em;
+   text-align: center;
+ }
+
+ .emoji::after {
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+ }
+
+
+ .wave::after {
+   content: '✋';
+   --emoji: '👋';
+   animation-name: twoFrames;
+   animation-duration: 1s;
+ }
+
+ @keyframes twoFrames {
+   50% {
+     content: var(--emoji);
+   }
+ }
+
+ @keyframes threeFrames {
+   33.333% {
+     content: var(--emoji-1);
+   }
+
+   66.666% {
+     content: var(--emoji-2);
+   }
+ }
+
+
+ .intro h1 {
+  text-transform: uppercase;
+   position: relative;
+   top: 300px;
+   left: 500px;
+   color: azure;
+   font-size: 90px;
+
+ }
+
+ .intro h2 {
+  text-transform:uppercase ;
+   animation: backInLeft;
+   animation-duration: 1s;
+   position: relative;
+   top: 300px;
+   left: 400px;
+   color: azure;
+   font-size: 50px;
+ }
+
+
+ .intro span {
+  text-transform: uppercase;
+   font-family: 'Dancing Script', cursive;
+   color: #53be73;
+ }
+
+ .findme i {
+   box-shadow: 0 4px 6px rgb(50, 227, 233);
+   font-size: 70px;
+   color: azure;
+   position: relative;
+   top: 400px;
+   left: 500px;
+   padding: 12px;
+ }
+
+ .findme i:hover {
+  box-shadow: 0 0 10px rgba(237, 12, 245, 0.5);
+  transition: box-shadow 0.2s;
+   scale: 1.2;
+   opacity: 1;
+ }
+
+ .findme h1 {
+  text-transform: uppercase;
+  text-decoration: underline 7px rgb(8, 168, 241);
+   font-size: 70px;
+   color: azure;
+   position: relative;
+   top: 400px;
+   left: 400px;
+   padding: 10px;
+ }
+
+ .findme span {
+   color: #db1af4;
+ }
+
+
+ #project {
+   position: relative;
+   top: 460px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin: 50px 0px;
+ }
+
+ .project-heading h2 {
+   font-family: 'Dancing Script', cursive;
+   position: relative;
+   color: azure;
+   font-size: 50px;
+ }
+
+ .project-heading h1 {
+   font-family: 'Dancing Script', cursive;
+   position: relative;
+   left: 600px;
+   bottom: 40px;
+   font-size: 50px;
+   color: white;
+ }
+
+ .project-heading span {
+   font-family: 'Dancing Script', cursive;
+   padding: 10px;
+   color: rgb(200, 243, 9);
+ }
+
+
+ .portfolio-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   max-width: 1400px;
+   margin: auto;
+ }
+
+ .portfolio-box {
+   opacity: 1;
+   width: 330px;
+   padding: 15px;
+   border: 5px solid #eae8ee;
+   margin: 20px;
+ }
+
+ .portfolio-box:hover {
+   scale: 1.2;
+ }
+ .portfolio-box img:hover {
+  scale: 1.0;
+}
+
+ .portfolio-box img {
+   width: 100%;
+   height: 100%;
+   border-radius: 5px;
+   overflow: hidden;
+ }
+
+ .project-heading h3 {
+   font-family: 'Dancing Script', cursive;
+   position: relative;
+   top: 100px;
+   left: 100px;
+   color: white;
+   font-size: 2.7em;
+   font-weight: 500;
+ }
+
+ .project-heading h4 {
+   animation: backInLeft;
+   animation-duration: 1s;
+   font-family: 'Dancing Script', cursive;
+   color: #e9e2d8;
+   font-size: 2.7em;
+   font-weight: 500;
+ }
+
+
+ :root {
+   --square-size: 15px;
+   --square-gap: 5px;
+   --week-width: calc(var(--square-size) + var(--square-gap));
+ }
+
+ .months {
+   grid-area: months;
+ }
+
+ .days {
+   grid-area: days;
+ }
+
+ .squares {
+   grid-area: squares;
+ }
+
+ .graph {
+   display: inline-grid;
+   grid-template-areas: "empty months"
+     "days squares";
+   grid-template-columns: auto 1fr;
+   grid-gap: 10px;
+ }
+
+ .months {
+   display: grid;
+   grid-template-columns: calc(var(--week-width) * 4)
+     /* Jan */
+     calc(var(--week-width) * 4)
+     /* Feb */
+     calc(var(--week-width) * 4)
+     /* Mar */
+     calc(var(--week-width) * 5)
+     /* Apr */
+     calc(var(--week-width) * 4)
+     /* May */
+     calc(var(--week-width) * 4)
+     /* Jun */
+     calc(var(--week-width) * 5)
+     /* Jul */
+     calc(var(--week-width) * 4)
+     /* Aug */
+     calc(var(--week-width) * 4)
+     /* Sep */
+     calc(var(--week-width) * 5)
+     /* Oct */
+     calc(var(--week-width) * 4)
+     /* Nov */
+     calc(var(--week-width) * 5)
+     /* Dec */
+   ;
+ }
+
+ .days,
+ .squares {
+
+   display: grid;
+   grid-gap: var(--square-gap);
+   grid-template-rows: repeat(7, var(--square-size));
+ }
+
+ .squares {
+   grid-auto-flow: column;
+   grid-auto-columns: var(--square-size);
+ }
+
+ .graph {
+   position: relative;
+   top: 400px;
+   left: 100px;
+   border: 3px #e1e4e8 solid;
+   margin: 20px;
+ }
+
+ .days li:nth-child(odd) {
+   visibility: hidden;
+ }
+
+ .squares li {
+   background-color: #ebedf0;
+ }
+
+ .squares li[data-level="1"] {
+   background-color: #ffecec;
+ }
+
+ .squares li[data-level="2"] {
+   background-color: #2dcf2d;
+ }
+
+ .squares li[data-level="3"] {
+   background-color: #43754d;
+ }
+
+ li {
+   font-size: 20px;
+   color: azure;
+   list-style: none;
+ }
+
+ .gap {
+  text-transform: uppercase;
+   text-decoration: underline 7px rgb(11, 238, 181);
+   font-size: 40px;
+   color: azure;
+   font-weight: 500;
+   position: relative;
+   top: 400px;
+   left: 400px;
+ }
+
+ .gap span {
+   color: rgb(205, 223, 49);
+ }
+
+
+ .skills_section {
+   position: relative;
+   top: 400px;
+   width: 100%;
+   height: 100vh;
+   padding: 0px 13%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+ }
+
+ .skills_head {
+   animation: backInLeft;
+   animation-duration: 1s;
+   width: 100%;
+   margin-bottom: 100px;
+   display: grid;
+   place-items: center;
+   text-align: center;
+ }
+
+ .skills_head h2 {
+  margin-top: 10px;
+   font-size: 50px;
+   color: #ffecec;
+   margin-bottom: -5px;
+ }
+
+ .skills_head h2 span {
+   color: #d4b91e;
+ }
+
+ .skills_head p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+   font-size: 50px;
+   color: rgb(117, 189, 189);
+ }
+
+ .info p {
+   color: #ffecec;
+   font-size: 30px;
+ }
+
+
+
+
+
+ .skills_main {
+   width: 100%;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-row-gap: 30px;
+   grid-column-gap: 50px;
+ }
+
+ .skills_main .skill_bar .info {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 10px;
+ }
+
+ .skill_bar .info p:nth-child(2) {
+   font-weight: 500;
+ }
+
+ .skill_bar .bar {
+   width: 100%;
+   height: 10px;
+   background-color: azure;
+   border-radius: 25px;
+   margin-top: 5px;
+   position: relative;
+ }
+
+ .skill_bar .bar span {
+   width: 50%;
+   height: 100%;
+   position: absolute;
+   background-color: #e90b8c;
+   border-radius: 25px;
+ }
+
+ .skill_bar .bar .html {
+   width: 100%;
+   animation: html 2s;
+ }
+
+ @keyframes html {
+   0% {
+     width: 0%;
+   }
+
+   100% {
+     width: 90%;
+   }
+ }
+
+ .skill_bar .bar .css {
+   width: 90%;
+   animation: css 2s;
+ }
+
+ @keyframes css {
+   0% {
+     width: 0%;
+   }
+
+   100% {
+     width: 85%;
+   }
+ }
+
+ .skill_bar .bar .sass {
+   width: 90%;
+   animation: sass 2s;
+ }
+
+ @keyframes sass {
+   0% {
+     width: 0%;
+   }
+
+   100% {
+     width: 80%;
+   }
+ }
+
+ .skill_bar .bar .js {
+   width: 80%;
+   animation: css 2s;
+ }
+
+ @keyframes js {
+   0% {
+     width: 0%;
+   }
+
+   100% {
+     width: 80%;
+   }
+ }
+
+ .skill_bar .bar .react {
+   width: 70%;
+   animation: react 2s;
+ }
+
+ @keyframes react {
+   0% {
+     width: 0%;
+   }
+
+   100% {
+     width: 75%;
+   }
+ }
+
+ .skill_bar .bar .node {
+   width: 70%;
+   animation: node 2s;
+ }
+
+ @keyframes node {
+   0% {
+     width: 0%;
+   }
+
+   100% {
+     width: 70%;
+   }
+ }
+
+ .skill_bar .bar .express {
+   width: 65%;
+   animation: express 2s;
+ }
+
+ @keyframes express {
+   0% {
+     width: 0%;
+   }
+
+   100% {
+     width: 65%;
+   }
+ }
+
+ .skill_bar .bar .mongo {
+   width: 60%;
+   animation: mongo 2s;
+ }
+
+ @keyframes mongo {
+   0% {
+     width: 0%;
+   }
+
+   100% {
+     width: 60%;
+   }
+ }
+
+ .skill-ic {
+   font-size: 60px;
+   color: #9db19b;
+   padding: 20;
+   position: relative;
+   top: 390px;
+   left: 400px;
+ }
+ 
+
+
+@media screen and (max-width:900px){
+  .intro h1{
+    width: 200%;
+  }
+  .intro h2{
+      width: 200%;
+  }
+  [data-ty]{
+    width:100%;
+  }
+  [data-termynal]{
+    margin-left: 120px;
+    min-width: 800px;
+  }
+  .findme h1{
+    width: 200%;
+  }
+  .portfolio-container {
+    align-content: space-around;
+    position: relative;
+    right: 50px;
+    display: grid;
+    grid-template-columns: 400px auto 200px;
+    padding: 70px;
+}
+.project-heading h4 {
+    font-size:37px;
+    position: relative;
+    left: 400px;
+}
+.skills_head p {
+  width: 200%;
+}
+.skills_section{
+  width: 300%;
+  left: 20px;
+}
+.gap{
+  width:200%;
+}
+.graph{
+  left: 2px; /* Set the left edge of the element */
+}
+}
